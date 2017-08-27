@@ -36,3 +36,21 @@ For a table called [name], change the column name from [first] to [firstname]
 ```MySQL
 ALTER TABLE `name` CHANGE COLUMN `first` `firstname` VARCHAR(40) NULL;
 ```
+# Setting up MySQL connectivity in python3
+
+Python3 needs the mysql-connector module to interact with MySQL databases
+
+* `sudo apt-get install python3-mysql.connector`
+
+Here's an example of a simple python3 (works in 2 also but that's a different install above) script for connecting to a MySQL database
+
+```python
+
+import mysql.connector
+
+cnx = mysql.connector.connect(user='root', password='xxxxxx',
+                              host='127.0.0.1',
+                              database='test')
+cnx.close()
+
+```
