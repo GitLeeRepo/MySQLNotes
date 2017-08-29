@@ -16,17 +16,6 @@ Notes taken while learning/relearning MySQL
 
 * `mysqladmin -p -u root version`  This will display version and other useful information.
 
-
-# Reset password of a user including root
-
-```MySQL
-mysql -u root -p
-
-use mysql;
-SET PASSWORD FOR root@localhost = PASSWORD('newpassword');
-flush privileges;
-```
-
 # Alter Table
 
 ## Changing a column name and type
@@ -53,4 +42,18 @@ cnx = mysql.connector.connect(user='root', password='xxxxxx',
                               database='test')
 cnx.close()
 
+```
+# Checking and Setting Configurations
+
+## Check the port used by MySQL
+
+* `MySQL> SHOW GLOBAL VARIABLES LIKE 'PORT';`
+## Reset password of a user including root
+
+```MySQL
+mysql -u root -p
+
+use mysql;
+SET PASSWORD FOR root@localhost = PASSWORD('newpassword');
+flush privileges;
 ```
