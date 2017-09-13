@@ -60,7 +60,7 @@ cnx.close()
 ```
 # Checking and Setting Configurations
 
-## Creating a user and granting access priveleges
+## Creating a user and granting access privileges
 
 * To create a user with both localhost access and access from all other hosts:
 
@@ -68,7 +68,7 @@ cnx.close()
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 ```
-* To grant them all priveleges on a specific database:
+* To grant them all privileges on a specific database:
 
 ```mysql
 GRANT ALL ON dbname.* TO 'username'@'localhost';
@@ -89,6 +89,20 @@ The following is often mentioned, but not necessary when changes are made with t
 ```mysql
 FLUSH PRIVILEGES;
 ```
+
+## Allowing remote access to MySQL
+
+1. Edit the `/etc/mysql/mysql.conf.d/mysqld.cnf` file changing the bind-address from 127.0.0.0 to 0.0.0.0:
+
+```mysql
+bind-address        = 0.0.0.0
+```
+
+Note this allows remote access from any host, to specify a particular host use its ip instead of 0.0.0.0
+
+1. Set up the desired users to have remote access privileges
+
+Refer to the [Creating a user and granting access privileges](#creating-a-user-and-granting-access-privilegess) above, with the key part being the allowing of remote hosts (through the `%` wildcard) when creating the user and granting access privileges.
 
 ## Check the port used by MySQL
 
