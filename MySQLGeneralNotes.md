@@ -92,7 +92,7 @@ FLUSH PRIVILEGES;
 
 ## Allowing remote access to MySQL
 
-1. Edit the `/etc/mysql/mysql.conf.d/mysqld.cnf` file changing the bind-address from 127.0.0.0 to 0.0.0.0:
+* Edit the `/etc/mysql/mysql.conf.d/mysqld.cnf` file changing the bind-address from 127.0.0.0 to 0.0.0.0:
 
 ```mysql
 bind-address        = 0.0.0.0
@@ -100,7 +100,7 @@ bind-address        = 0.0.0.0
 
 Note this allows remote access from any host, to specify a particular host use its ip instead of 0.0.0.0
 
-1. Set up the desired users to have remote access privileges
+* Set up the desired users to have remote access privileges
 
 Refer to the [Creating a user and granting access privileges](#creating-a-user-and-granting-access-privilegess) above, with the key part being the allowing of remote hosts (through the `%` wildcard) when creating the user and granting access privileges.
 
