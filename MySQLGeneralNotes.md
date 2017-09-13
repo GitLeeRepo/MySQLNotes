@@ -60,6 +60,36 @@ cnx.close()
 ```
 # Checking and Setting Configurations
 
+## Creating a user and granting access priveleges
+
+* To create a user with both localhost access and access from all other hosts:
+
+```mysql
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+```
+* To grant them all priveleges on a specific database:
+
+```mysql
+GRANT ALL ON dbname.* TO 'username'@'localhost';
+GRANT ALL ON dbname.* TO 'username'@'%';
+```
+
+* To grant them all priveleges on a all databases:
+
+```mysql
+GRANT ALL ON *.* TO 'username'@'localhost';
+GRANT ALL ON *.* TO 'username'@'%';
+```
+
+* Reloading Grant changes (not necessary here):
+
+The following is often mentioned, but not necessary when changes are made with the GRANT command.  It is necessary however if the grants are updated directly in the database:
+
+```mysql
+FLUSH PRIVILEGES;
+```
+
 ## Check the port used by MySQL
 
 * `MySQL> SHOW GLOBAL VARIABLES LIKE 'PORT';`
