@@ -16,6 +16,21 @@ Notes taken while learning/relearning MySQL
 
 * `mysqladmin -p -u root version`  This will display version and other useful information.
 
+# Show Commands
+
+* `SHOW COLUMNS FROM [<db>.]<table>` - display the tables column structure (col name, type, null, key, default, extra).  Equivellent to the `describe <table>` command.  For coalation and operation privileges use `SHOW FULL COLUMNS FROM [<db>.]<table>`.
+
+* `SHOW CREATE TABLE [<db>.]<table>` - display the CREATE statement used to create the table, this includes the engine, current increment number, and character set.
+
+* `SHOW DATABASES` - display a list of databases.
+
+* `SHOW GRANTS [FOR <user>]` - show the grant privelleges for a particular user, if the `FOR <user>` is not specified it is for the current user.
+
+* `SHOW INDEX FROM [<db>.]<table>` - display the tables indexes.
+
+* `SHOW TABLES` - display a list of tables in the current database.
+
+
 # Alter Table
 
 ## Changing a column name and type
