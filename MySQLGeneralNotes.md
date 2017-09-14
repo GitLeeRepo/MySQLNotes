@@ -81,7 +81,7 @@ GRANT ALL ON dbname.* TO 'username'@'%';
 GRANT ALL ON *.* TO 'username'@'localhost';
 GRANT ALL ON *.* TO 'username'@'%';
 ```
-
+Note: Specifying the localhost in addition to the wildcard above is necessary if there is an anonymous user on the local host, since its settings will take precedence when connecting from the local host.  Refer to the [MySQL Reference Manual for details](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html).
 * Reloading Grant changes (not necessary here):
 
 The following is often mentioned, but not necessary when changes are made with the GRANT command.  It is necessary however if the grants are updated directly in the database:
@@ -105,7 +105,9 @@ Note this allows remote access from any host, to specify a particular host use i
 Refer to the [Creating a user and granting access privileges](MySQLGeneralNotes.md#creating-a-user-and-granting-access-privileges) section above, with the key part being the allowing of remote hosts (through the `%` wildcard) when creating the user and granting access privileges, i.e:
 
 ```mysql
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO 'username'@'localhost';
 GRANT ALL ON *.* TO 'username'@'%';
 ```
 
