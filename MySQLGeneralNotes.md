@@ -102,7 +102,7 @@ Note this allows remote access from any host, to specify a particular host use i
 
 2. Set up the desired users to have remote access privileges
 
-Refer to the [Creating a user and granting access privileges](#creating-a-user-and-granting-access-privilegess) section above, with the key part being the allowing of remote hosts (through the `%` wildcard) when creating the user and granting access privileges, i.e:
+Refer to the [Creating a user and granting access privileges](MySQLGeneralNotes.md#creating-a-user-and-granting-access-privileges) section above, with the key part being the allowing of remote hosts (through the `%` wildcard) when creating the user and granting access privileges, i.e:
 
 ```mysql
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
