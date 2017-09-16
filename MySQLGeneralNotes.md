@@ -90,6 +90,14 @@ The following is often mentioned, but not necessary when changes are made with t
 FLUSH PRIVILEGES;
 ```
 
+* Getting a list of users:
+
+```
+SELECT `user`, `host`
+FROM `mysql`.`user`
+ORDER BY `user`, `host`;
+```
+
 ## Allowing remote access to MySQL
 
 1. Edit the `/etc/mysql/mysql.conf.d/mysqld.cnf` file changing the bind-address from 127.0.0.0 to 0.0.0.0:
