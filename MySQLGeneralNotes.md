@@ -18,13 +18,13 @@ Notes taken while learning/relearning MySQL
 
 # Show Commands
 
-* `SHOW COLUMNS FROM [<db>.]<table>` - display the tables column structure (col name, type, null, key, default, extra).  Equivellent to the `describe <table>` command.  For coalation and operation privileges use `SHOW FULL COLUMNS FROM [<db>.]<table>`.
+* `SHOW COLUMNS FROM [<db>.]<table>` - display the tables column structure (col name, type, null, key, default, extra).  Equivalent to the `describe <table>` command.  For collation and operation privileges use `SHOW FULL COLUMNS FROM [<db>.]<table>`.
 
 * `SHOW CREATE TABLE [<db>.]<table>` - display the CREATE statement used to create the table, this includes the engine, current increment number, and character set.
 
 * `SHOW DATABASES` - display a list of databases.
 
-* `SHOW GRANTS [FOR <user>]` - show the grant privelleges for a particular user, if the `FOR <user>` is not specified it is for the current user.
+* `SHOW GRANTS [FOR <user>]` - show the grant privileges for a particular user, if the `FOR <user>` is not specified it is for the current user.
 
 * `SHOW INDEX FROM [<db>.]<table>` - display the tables indexes.
 
@@ -40,13 +40,13 @@ For a table called [name], change the column name from [first] to [firstname]
 ```MySQL
 ALTER TABLE `name` CHANGE COLUMN `first` `firstname` VARCHAR(40) NULL;
 ```
-# Setting up MySQL connectivity in python3
+# Setting up MySQL connectivity in Python3
 
 Python3 needs the mysql-connector module to interact with MySQL databases
 
 * `sudo apt-get install python3-mysql.connector`
 
-Here's an example of a simple python3 (works in 2 also but that's a different install above) script for connecting to a MySQL database
+Here's an example of a simple Python3 (works in 2 also but that's a different install above) script for connecting to a MySQL database
 
 ```python
 
@@ -75,7 +75,7 @@ GRANT ALL ON dbname.* TO 'username'@'localhost';
 GRANT ALL ON dbname.* TO 'username'@'%';
 ```
 
-* To grant them all priveleges on a all databases:
+* To grant them all privileges on a all databases:
 
 ```mysql
 GRANT ALL ON *.* TO 'username'@'localhost';
@@ -106,7 +106,7 @@ ORDER BY `user`, `host`;
 bind-address        = 0.0.0.0
 ```
 
-Note this allows remote access from any host, to specify a particular host use its ip instead of 0.0.0.0
+Note this allows remote access from any host, to specify a particular host use its IP instead of 0.0.0.0
 
 2. Set up the desired users to have remote access privileges
 
