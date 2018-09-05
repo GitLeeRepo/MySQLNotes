@@ -2,6 +2,12 @@
 
 Notes taken while learning/relearning MySQL
 
+# References
+
+## My Other Notes
+
+* [SqlSource](https://github.com/GitLeeRepo/SqlSource) - SQL source code for multiple servers
+
 # Installation
 
 * `sudo apt-get update`
