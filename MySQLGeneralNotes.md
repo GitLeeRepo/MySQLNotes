@@ -7,6 +7,7 @@ Notes taken while learning/relearning MySQL
 ## My Other Notes
 
 * [SqlSource](https://github.com/GitLeeRepo/SqlSource) - SQL source code for multiple servers
+* [SqlServerNotes](https://github.com/GitLeeRepo/SqlServerNotes/blob/master/SqlServerNotes.md#overview)
 
 # Installation
 
