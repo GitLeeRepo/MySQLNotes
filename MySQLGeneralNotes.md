@@ -152,3 +152,59 @@ use mysql;
 SET PASSWORD FOR root@localhost = PASSWORD('newpassword');
 flush privileges;
 ```
+
+# Creating a test Database and Tables
+
+## Create Database
+
+```sql
+CREATE DATABASE test;
+```
+
+## Create Tables
+
+```sql
+USE test;
+
+CREATE TABLE `name` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(40) DEFAULT NULL,
+  `lastname` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1
+```
+
+```sql
+ CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
+  `street` varchar(40) DEFAULT NULL,
+  `city` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
+
+## Insert into Tables
+
+```sql
+INSERT INTO name(firstname, lastname)
+VALUES ('Billy', 'Bob');
+
+INSERT INTO name(firstname, lastname)
+VALUES ('Willy', 'Nilly');
+```
+
+```sql
+INSERT INTO address(id, street, city) 
+VALUES (8, 'Billy Bob Ave', 'Hickeryville');
+
+INSERT INTO address(id, street, city) 
+VALUES (9, 'Willy Nilly Lane', 'Hickeryville');
+```
+
+## Select the Test Data
+
+```sql
+SELECT n.firstname, n.lastname, a.street, a.city
+FROM name n
+JOIN address a ON n.id = a.id;
+```
