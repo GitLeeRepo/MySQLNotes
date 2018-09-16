@@ -171,7 +171,7 @@ CREATE TABLE `name` (
   `firstname` varchar(40) DEFAULT NULL,
   `lastname` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 ```
 
 ```sql
