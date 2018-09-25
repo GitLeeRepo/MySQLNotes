@@ -246,7 +246,7 @@ INSERT INTO address(id, street, city)
 VALUES (8, 'Billy Bob Ave', 'Hickeryville');
 
 INSERT INTO address(id, street, city) 
-VALUES (9, 'Willy Nilly Lane', 'Hickeryville')
+VALUES (9, 'Willy Nilly Lane', 'Hickeryville');
 
 SELECT n.firstname, n.lastname, a.street, a.city
 FROM name n
