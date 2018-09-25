@@ -24,6 +24,12 @@ Notes taken while learning/relearning MySQL
 
 * `mysqladmin -p -u root version`  This will display version and other useful information.
 
+# Running MySQL
+
+```bash
+mysql -u username -p
+```
+
 # Show Commands
 
 * `SHOW COLUMNS FROM [<db>.]<table>` - display the tables column structure (col name, type, null, key, default, extra).  Equivalent to the `describe <table>` command.  For collation and operation privileges use `SHOW FULL COLUMNS FROM [<db>.]<table>`.
