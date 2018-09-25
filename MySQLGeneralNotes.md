@@ -252,3 +252,11 @@ SELECT n.firstname, n.lastname, a.street, a.city
 FROM name n
 JOIN address a ON n.id = a.id;
 ```
+
+# Remote Connections
+
+## Connect a mysql client on One Host to another Host
+
+```bash
+mysql -u username -p --host 172.17.0.4
+```
