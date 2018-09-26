@@ -116,6 +116,8 @@ ORDER BY `user`, `host`;
 
 ## Allowing remote access to MySQL
 
+Refer also to the **More Remote Connections Info** section below, including a **Troubleshooting Remote Connection Issues** section.  You may also want to refer to the **Configuration Files** section below.
+
 1. Edit the `/etc/mysql/mysql.conf.d/mysqld.cnf` file changing the bind-address from 127.0.0.0 to 0.0.0.0:
 
 ```mysql
@@ -151,6 +153,7 @@ tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      
 ## Check the port used by MySQL
 
 * `MySQL> SHOW GLOBAL VARIABLES LIKE 'PORT';`
+
 ## Reset password of a user including root
 
 ```MySQL
@@ -255,12 +258,16 @@ FROM name n
 JOIN address a ON n.id = a.id;
 ```
 
-# Remote Connections
+# More Remote Connections Info
+
+Refer also to the **Allowing remote access to MySQL** section above, and the section above it for **configuring users** for **remote access**.
 
 ## Connect a mysql client on One Host to another Host
 
 ```bash
 mysql -u username -p --host 172.17.0.4
+# if necessary include the port number
+mysql -h 172.17.0.4 -P 3306 -u username -p
 ```
 
 ### Troubleshooting Remote Connection Issues
@@ -341,5 +348,5 @@ The main **/etc/mysql/mysql.conf.d/mysqld.cnf** has lots of content, such as **s
 
 ## My Configuration File Strategy
 
-For the most part I will put my changes in the **/etc/mysql/my.cnf** file **after the directory include** for the main **/etc/mysql/mysql.conf.d/mysqld.cnf** file.  This is not always possible, such as when you need to **comment out** an existing setting such as the **bind-address = 127.0.0.1** to **enable remote connections**.
+For the most part I will put my changes in the **/etc/mysql/my.cnf** file **after the directory include** for the main **/etc/mysql/mysql.conf.d/mysqld.cnf** file.  This is not always possible, such as when you need to **comment out** an existing setting such as the **bind-address = 127.0.0.1** to **enable remote connections**.  As an alternative, you could override this setting by adding **bind-address = 0.0.0.0**.
 
