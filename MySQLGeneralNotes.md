@@ -9,6 +9,8 @@ Notes taken while learning/relearning MySQL
 * [SqlSource](https://github.com/GitLeeRepo/SqlSource) - SQL source code for multiple servers
 * [SqlServerNotes](https://github.com/GitLeeRepo/SqlServerNotes/blob/master/SqlServerNotes.md#overview)
 * [PostgresSQLNotes](https://github.com/GitLeeRepo/PostgresSQLNotes/blob/master/PostgresSQLNotes.md#overview)
+* [DownloadedImageNotes#mysql](https://github.com/GitLeeRepo/DockerNotes/blob/master/DownloadedImageNotes.md#mysql) for details on setting up and using a **MySQL Docker Image**.
+* [DockerNotes](https://github.com/GitLeeRepo/DockerNotes/blob/master/DockerNotes.md#overview) more general **Docker notes**
 
 # Installation
 
@@ -260,3 +262,11 @@ JOIN address a ON n.id = a.id;
 ```bash
 mysql -u username -p --host 172.17.0.4
 ```
+
+# Docker Containers
+
+**MySQL** can be used inside **Docker Containsers**, with **docker pull mysql** pulling the latest **Official image** from **Docker Hub**.
+
+Refer to:
+
+* My [DownloadedImageNotes#mysql](https://github.com/GitLeeRepo/DockerNotes/blob/master/DownloadedImageNotes.md#mysql) for details on setting up and using a **MySQL Docker Image**.
