@@ -263,6 +263,64 @@ JOIN address a ON n.id = a.id;
 mysql -u username -p --host 172.17.0.4
 ```
 
+### Troubleshooting Remote Connection Issues
+
+Refer to:
+
+* [Fixing Connection Issues](https://www.tecmint.com/fix-error-2003-hy000-cant-connect-to-mysql-server-on-127-0-0-1-111/)
+
+
+On the **remote**:
+
+```
+# first verify connectivity
+> ping server_ip_address
+
+# try accessing with
+> mysql -u username -p -h host_address  
+
+# if not check the port on the server
+server>  netstat -lnp | grep mysql
+
+# use the port indicated
+```
+
+On the **server**:
+
+```
+# verify the daemon is running
+> ps -Af | grep mysqld
+
+# if not running
+> sudo systemctl start mysql.service
+
+# check the port (on the **tcp** line, not the **unix** line)
+>  netstat -lnp | grep mysql
+```
+
+Now for the one that **fixed my issue**:
+
+```bash
+> sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf 
+
+vi> # comment out the following
+vi> bind-address = 127.0.0.1 
+vi> # becomes
+vi> #bind-address = 127.0.0.1 
+# back to bash to restart the mysql.service
+> sudo systemctl restart mysql.service
+```
+
+The commenting of this line and restarting mysql **fixed my issue**.
+
+**Important** - don't confuse the **/etc/mysql/mysql.conf.d/mysqld.cnf** file with '/etc/mysql/my.cnf' file, which I did at first.  While on some systems they may be the same (since it suggest you can copy this file there) on my default **Ubuntu 18-04** this **my.cnf** file condtained **directory includes** for the **/etc/mysql/mysql.conf.d/** directory where the **mysqld.cnf** file resides.  By default, I also didn't have a **/etc/my.cnf** file.  Based on the comments in the main file this is the intention:
+
+* **/etc/my.cnf** -- current local users settings
+* **/etc/mysql/my.cnf** -- global system wide settings
+* **/etc/mysql/mysql.conf.d/mysqld.cnf** -- the main configuration file -- changing here fixed my issue
+
+The clue that you are in the wrong file (in my environment) was that there wasn't much content in **/etc/mysql/my.cnf**, while the **/etc/mysql/mysql.conf.d/mysqld.cnf** had lots of content, such as **socket definitions**.
+
 # Docker Containers
 
 **MySQL** can be used inside **Docker Containsers**, with **docker pull mysql** pulling the latest **Official image** from **Docker Hub**.
@@ -270,3 +328,18 @@ mysql -u username -p --host 172.17.0.4
 Refer to:
 
 * My [DownloadedImageNotes#mysql](https://github.com/GitLeeRepo/DockerNotes/blob/master/DownloadedImageNotes.md#mysql) for details on setting up and using a **MySQL Docker Image**.
+
+# Configuration Files
+
+* **/etc/my.cnf** -- current local users settings -- didn't exist on my default starting set up
+* **/etc/mysql/my.cnf** -- global system wide settings -- existed on my default initial setup with the following **directory includes**:
+  * **`!includedir /etc/mysql/conf.d/`**  -- has mysql.cnf which is empty on my setup
+  * **`!includedir /etc/mysql/mysql.conf.d/`** -- contains the main configuration file I list below
+* **/etc/mysql/mysql.conf.d/mysqld.cnf** -- the main configuration file
+
+The main **/etc/mysql/mysql.conf.d/mysqld.cnf** has lots of content, such as **socket definitions**, **data files location**, **temp file location**, **configuration tuning** parameters such as **buffer size**, **log file location**, **SSL configurations**, etc.
+
+## My Configuration File Strategy
+
+For the most part I will put my changes in the **/etc/mysql/my.cnf** file **after the directory include** for the main **/etc/mysql/mysql.conf.d/mysqld.cnf** file.  This is not always possible, such as when you need to **comment out** an existing setting such as the **bind-address = 127.0.0.1** to **enable remote connections**.
+
