@@ -8,7 +8,7 @@ Notes taken while learning/relearning MySQL
 
 * [SqlSource](https://github.com/GitLeeRepo/SqlSource) - SQL source code for multiple servers
 * [SqlServerNotes](https://github.com/GitLeeRepo/SqlServerNotes/blob/master/SqlServerNotes.md#overview)
-* [PostgresSQLNotes](https://github.com/GitLeeRepo/PostgresSQLNotes/blob/master/PostgresSQLNotes.md#overview)
+* [PostgreSQLNotes](https://github.com/GitLeeRepo/PostgreSQLNotes/blob/master/PostgreSQLNotes.md#overview)
 * [DownloadedImageNotes#mysql](https://github.com/GitLeeRepo/DockerNotes/blob/master/DownloadedImageNotes.md#mysql) for details on setting up and using a **MySQL Docker Image**.
 * [DockerNotes](https://github.com/GitLeeRepo/DockerNotes/blob/master/DockerNotes.md#overview) more general **Docker notes**
 
