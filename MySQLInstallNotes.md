@@ -90,3 +90,24 @@ quit;
 ```
 
 Not sure if I would have used the **password** setting method of the 2nd solution (without the plugin load) if that would have worked or if the original syntax would have worked if I added the **plugin** line in the 1st solution.  I suspect if I do this again, but follow all the steps of the first solution, and just replace the password part with the two lines from the second, it should work.  But also note that the 2nd solution does the **flush priveleges** after chaning the password, instead of before.  Regardless, the combination of the two, done it order, solved the problem. Provided that after the 2nd solution, you remember to go back and comment out the **skip-grant-tables** and **restart** found in the 1st solution.  To play it safe, make sure you stay in MySQL during the 1st soluton, so you don't get locked out.
+
+# Docker Related
+
+## Copying a Docker Directory to a Different Server
+
+* Note that when you **copy** a set of **docker directories** that include **MySQL data directories** (the **database files**) to another server you will get **login errors** when trying to connect.  To **resolve** **delete the MySql data file and directories** (you can keep the root directory) and allow the **Docker MySQL** container to generated **new database files**.  Either **recreate** or **restore** you databases.  Note this **only applies** when you are **attaching** to an **external host directory**
+
+* If your **host server** is already **running MySQL** then **stop the service** (note I'm guessing you can run both if they use differnt ports):
+
+```bash
+sudo systemctl stop mysql
+```
+
+To prevent it from starting at **boot time**
+
+```bash
+$ sudo vi /etc/init/mysql.conf
+# and then comment out the following "start on" near the top
+# TK - prevent starting when using Docker
+#start on runlevel [2345]
+```
