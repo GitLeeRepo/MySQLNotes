@@ -30,6 +30,34 @@ mysql -u username -p
 
 * `mysqladmin -p -u root version`  This will display version and other useful information.
 
+## Status/Starting/Stopping/Restarting Service
+
+This will display its status. If it is not running type:
+
+### Status
+
+```bash
+systemctl status mysql.service 
+```
+
+### Starting
+
+```bash
+sudo systemctl start mysql
+```
+
+### Stoping
+
+```bash
+sudo systemctl stop mysql
+```
+
+### Restarting
+
+```bash
+sudo systemctl restart mysql
+```
+
 
 # Show Commands
 
