@@ -54,7 +54,7 @@ sudo systemctl stop mysql
 
 #### Preventing Start on Reboot
 
-```
+```bash
 $ sudo vi /etc/init/mysql.conf
 # and then comment out the following "start on" near the top
 # TK - prevent starting when using Docker
