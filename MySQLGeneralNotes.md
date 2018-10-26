@@ -6,6 +6,7 @@ Notes taken while learning/relearning MySQL
 
 ## My Other Notes
 
+* [MySQLInstallNotes](https://github.com/GitLeeRepo/MySQLNotes/blob/master/MySQLInstallNotes.md#overview)
 * [SqlSource](https://github.com/GitLeeRepo/SqlSource) - SQL source code for multiple servers
 * [SqlServerNotes](https://github.com/GitLeeRepo/SqlServerNotes/blob/master/SqlServerNotes.md#overview)
 * [PostgreSQLNotes](https://github.com/GitLeeRepo/PostgreSQLNotes/blob/master/PostgreSQLNotes.md#overview)
@@ -14,23 +15,21 @@ Notes taken while learning/relearning MySQL
 
 # Installation
 
-* `sudo apt-get update`
-* `sudo apt-get install mysql-server`
-* `sudo mysql_secure_installation`
+Refer to:
 
-## Verifying Installation
+* [MySQLInstallNotes](https://github.com/GitLeeRepo/MySQLNotes/blob/master/MySQLInstallNotes.md#overview)
 
-* `systemctl status mysql.service` This will display its status.  If it is not running type: `sudo systemctl start mysql`
-
-## Version info
-
-* `mysqladmin -p -u root version`  This will display version and other useful information.
 
 # Running MySQL
 
 ```bash
 mysql -u username -p
 ```
+
+## Version info
+
+* `mysqladmin -p -u root version`  This will display version and other useful information.
+
 
 # Show Commands
 
